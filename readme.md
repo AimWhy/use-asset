@@ -23,6 +23,7 @@ import { createAsset } from "use-asset"
 
 // Create a cached source
 const asset = createAsset(async (id, version) => {
+  // Any async task can run in here, fetch requests, parsing, workers, promises, ...
   const res = await fetch(`https://hacker-news.firebaseio.com/${version}/item/${id}.json`)
   return await res.json()
 })
@@ -81,6 +82,7 @@ import { useAsset } from "use-asset"
 
 function Post({ id }) {
   const { by, title } = useAsset(async (id, version) => {
+    // Any async task can run in here, fetch requests, parsing, workers, promises, ...
     const res = await fetch(`https://hacker-news.firebaseio.com/${version}/item/${id}.json`)
     return await res.json()
   }, id, "v0") // As many cache keys as you need
