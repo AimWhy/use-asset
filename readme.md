@@ -35,7 +35,7 @@ function Post({ id }) {
 }
 
 function App() {
-  <Suspense fallback={null}>
+  <Suspense fallback={<div>loading...</div>}>
     <Post id={10000} />
   </Suspense>
 }
@@ -89,7 +89,7 @@ function Post({ id }) {
 }
 
 function App() {
-  <Suspense fallback={null}>
+  <Suspense fallback={<div>loading...</div>}>
     <Post id={1000} />
 ```
 
