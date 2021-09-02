@@ -21,13 +21,16 @@ Each asset you create comes with its own cache. When you request something from 
 import React, { Suspense } from "react"
 import { createAsset } from "use-asset"
 
+// Create a cached source
 const asset = createAsset(async (id, version) => {
   const res = await fetch(`https://hacker-news.firebaseio.com/${version}/item/${id}.json`)
   return await res.json()
 })
 
 function Post({ id }) {
+  // Then read from it ...
   const { by, title } = asset.read(id, "v0") // As many cache keys as you need
+  // By the time we're here the async data has resolved
   return <div>{title} by {by}</div>
 }
 
@@ -81,6 +84,7 @@ function Post({ id }) {
     const res = await fetch(`https://hacker-news.firebaseio.com/${version}/item/${id}.json`)
     return await res.json()
   }, id, "v0") // As many cache keys as you need
+  // By the time we're here the async data has resolved
   return <div>{title} by {by}</div>
 }
 
