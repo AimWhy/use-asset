@@ -27,7 +27,7 @@ const asset = createAsset(async (id, version) => {
 })
 
 function Post({ id }) {
-  const { by, title } = asset.read(id, "v0")
+  const { by, title } = asset.read(id, "v0") // As many cache keys as you need
   return <div>{title} by {by}</div>
 }
 
@@ -77,7 +77,10 @@ You can also use the `useAsset` hook, which is modelled after [react-promise-sus
 import { useAsset } from "use-asset"
 
 function Post({ id }) {
-  const { by, title } = useAsset(fn, id)
+  const { by, title } = useAsset(async (id, version) => {
+    const res = await fetch(`https://hacker-news.firebaseio.com/${version}/item/${id}.json`)
+    return await res.json()
+  }, id, "v0") // As many cache keys as you need
   return <div>{title} by {by}</div>
 }
 
