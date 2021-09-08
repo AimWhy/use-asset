@@ -7,9 +7,7 @@
 [![Version](https://img.shields.io/npm/v/use-asset?style=flat&colorA=000000&colorB=000000)](https://www.npmjs.com/package/use-asset)
 [![Downloads](https://img.shields.io/npm/dt/use-asset.svg?style=flat&colorA=000000&colorB=000000)](https://www.npmjs.com/package/use-asset)
 
-<p align="left">
-  <a id="async-assets" href="#async-assets"><img src="img/async-assets.svg" alt="Dealing with async assets" /></a>
-</p>
+# Dealing with async assets
 
 Each asset you create comes with its own cache. When you request something from it, the arguments that you pass will act as cache-keys. If you request later on using the same keys, it won't have to re-fetch but serves the result that it already knows.
 
@@ -63,9 +61,7 @@ asset.clear("/image.png")
 asset.peek("/image.png")
 ```
 
-<p align="left">
-  <a id="hooks-global-cache" href="#hooks-global-cache"><img src="img/hooks-global-cache.svg" alt="Hooks and global cache" /></a>
-</p>
+# Hooks and global cache
 
 You can also use the `useAsset` hook, which is modelled after [react-promise-suspense](https://github.com/vigzmv/react-promise-suspense). This makes it possible to define assets on the spot instead of having to define them externally. They use a global cache, anything you request at any time is written into it.
 
@@ -105,9 +101,7 @@ useAsset.preload(promiseFn, "/image.png")
 useAsset.peek("/image.png")
 ```
 
-<p align="left">
-  <a id="recipes" href="#recipes"><img src="img/recipes.svg" alt="Recipes" /></a>
-</p>
+# Recipes
 
 #### Simple data fetching
 
