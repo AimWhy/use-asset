@@ -1,3 +1,5 @@
+This project is deprecated, please use https://github.com/pmndrs/suspend-react instead!
+
 <p align="left">
   <a id="cover" href="#cover"><img src="img/cover.svg" alt="This library allows you to create cached assets, which can be promises, async functions or even dynamic imports. These assets then have the ability to suspend the component in which they are read. This makes it easier to orchestrate async tasks and gives you the ability to set up fallbacks and error-handling declaratively." /></a>
 </p>
